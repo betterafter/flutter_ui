@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  build_runner: ^2.4.6
+  source_gen: ^1.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
