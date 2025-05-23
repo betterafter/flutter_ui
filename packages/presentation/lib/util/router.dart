@@ -1,9 +1,15 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:presentation/home/home.screen.dart';
 import 'package:presentation/splash/splash.screen.dart';
 
 enum LookRoute {
-  splash,
-  home,
+  splash(path: '/'),
+  home(path: '/home');
+
+  final String path;
+
+  const LookRoute({required this.path});
 }
 
 class LookRouter {
@@ -21,16 +27,22 @@ class LookRouter {
   ///   builder: (context, state) => const UserScreen(id: state.pathParameters['userId']),
   /// ),
   static final router = GoRouter(
-    initialLocation: LookRoute.splash.name,
+    initialLocation: LookRoute.splash.path,
     routes: [
       GoRoute(
-        path: '/',
+        path: LookRoute.splash.path,
+        name: LookRoute.splash.name,
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: LookRoute.home.path,
+        name: LookRoute.home.name,
+        builder: (context, state) => const HomeScreen(),
       ),
     ],
   );
 
-  static Future<void> goHome() async {
-    await router.push(LookRoute.home.name);
+  static void goHome(BuildContext context) {
+    GoRouter.of(context).go(LookRoute.home.name);
   }
 }
