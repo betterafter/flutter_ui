@@ -1,6 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:presentation/splash/splash.screen.dart';
 
+enum LookRoute {
+  splash,
+  home,
+}
+
 class LookRouter {
   /// go router with no parameter
   ///
@@ -16,6 +21,7 @@ class LookRouter {
   ///   builder: (context, state) => const UserScreen(id: state.pathParameters['userId']),
   /// ),
   static final router = GoRouter(
+    initialLocation: LookRoute.splash.name,
     routes: [
       GoRoute(
         path: '/',
@@ -25,6 +31,6 @@ class LookRouter {
   );
 
   static Future<void> goHome() async {
-    // TODO: 홈 화면으로 이동
+    await router.push(LookRoute.home.name);
   }
 }
