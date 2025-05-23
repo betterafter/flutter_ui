@@ -11,7 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.8
 
   data:
@@ -24,8 +23,13 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # auto generate 등을 위한 빌드 세팅
   build_runner: ^2.4.12
   melos: ^6.3.2
+
+  # 의존성 주입 라이브러리
+  get_it: ^8.0.3
 
   flutter_lints: ^4.0.0
 
