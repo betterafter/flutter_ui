@@ -4,8 +4,7 @@ import 'package:glob/glob.dart';
 class AutoGenerator extends Builder {
   @override
   Future<void> build(BuildStep buildStep) async {
-    final files =
-        await buildStep.findAssets(Glob('lib/domain/**.dart')).toList();
+    final files = await buildStep.findAssets(Glob('lib/**.dart')).toList();
 
     final buffer = StringBuffer()
       ..writeln('// GENERATED CODE - DO NOT MODIFY BY HAND')
